@@ -11924,7 +11924,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Data-Science-Workflow">The Data Science Workflow<a class="anchor-link" href="#The-Data-Science-Workflow">&#182;</a></h1><center><img src="data-science-workflow.jpg" alt="" style="width: 650px;"/></center><p>Source: <a href="https://www.oreilly.com/ideas/data-analysis-just-one-component-of-the-data-science-workflow">Ben Lorica @ O'Reilly</a></p>
+<h1 id="The-(?)-Data-Science-Workflow">The (?) Data Science Workflow<a class="anchor-link" href="#The-(?)-Data-Science-Workflow">&#182;</a></h1><center><img src="data-science-workflow.jpg" alt="" style="width: 650px;"/></center><p>Source: <a href="https://www.oreilly.com/ideas/data-analysis-just-one-component-of-the-data-science-workflow">Ben Lorica @ O'Reilly</a></p>
 
 </div>
 </div>
@@ -11950,6 +11950,18 @@ a.anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="jupyter-/-ipython">jupyter / ipython<a class="anchor-link" href="#jupyter-/-ipython">&#182;</a></h1>
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="nbdime"><a href="http://nbdime.readthedocs.io">nbdime</a><a class="anchor-link" href="#nbdime">&#182;</a></h2><ul>
+<li>diff and merge tools for jupyter notebooks</li>
+<li>git integration!</li>
+</ul>
+<center><img src="nbdiff-web.png" alt="?" style="height: 500px;"/></center>
 </div>
 </div>
 </div></section></section><section><section>
@@ -12105,16 +12117,509 @@ b = numpy.log(a)
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="pandas-example">pandas example<a class="anchor-link" href="#pandas-example">&#182;</a></h2><p><strong>task: find the correlation between inhabitants and number of museums of the departements of France</strong></p>
-<p>1.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ls</span> <span class="n">data</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Departements.csv            Liste_musees_de_France.xls
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">departements</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/Departements.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">departements</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[20]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nom du département</th>
+      <th>Nombre d'arrondissements</th>
+      <th>Nombre de cantons</th>
+      <th>Nombre de communes</th>
+      <th>Population municipale</th>
+      <th>Population totale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Ain</td>
+      <td>4</td>
+      <td>23.0</td>
+      <td>410</td>
+      <td>626.127</td>
+      <td>643.309</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Aisne</td>
+      <td>5</td>
+      <td>21.0</td>
+      <td>805</td>
+      <td>539.783</td>
+      <td>554.040</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allier</td>
+      <td>3</td>
+      <td>19.0</td>
+      <td>318</td>
+      <td>343.062</td>
+      <td>353.262</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alpes-de-Haute-Provence</td>
+      <td>4</td>
+      <td>15.0</td>
+      <td>199</td>
+      <td>161.588</td>
+      <td>166.298</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Hautes-Alpes</td>
+      <td>2</td>
+      <td>15.0</td>
+      <td>168</td>
+      <td>139.883</td>
+      <td>145.213</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">departements</span> <span class="o">=</span> <span class="n">departements</span><span class="p">[[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">,</span> <span class="s2">&quot;Population totale&quot;</span><span class="p">]]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">museums</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;data/Liste_musees_de_France.xls&quot;</span><span class="p">)</span>
+<span class="n">museums</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[22]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NOMREG</th>
+      <th>NOMDEP</th>
+      <th>DATEAPPELLATION</th>
+      <th>FERME</th>
+      <th>ANNREOUV</th>
+      <th>ANNEXE</th>
+      <th>NOM DU MUSEE</th>
+      <th>ADR</th>
+      <th>CP</th>
+      <th>VILLE</th>
+      <th>SITWEB</th>
+      <th>FERMETURE ANNUELLE</th>
+      <th>PERIODE OUVERTURE</th>
+      <th>JOURS NOCTURNES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ALSACE</td>
+      <td>BAS-RHIN</td>
+      <td>01/02/2003</td>
+      <td>NON</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Musée de la Folie Marco</td>
+      <td>30, Rue du Dr Sultzer</td>
+      <td>67140</td>
+      <td>BARR</td>
+      <td>www.barr.fr</td>
+      <td>Novembre à avril</td>
+      <td>Ouvert de mai à septembre du mercredi au lundi...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ALSACE</td>
+      <td>BAS-RHIN</td>
+      <td>01/02/2003</td>
+      <td>NON</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Musée de la Poterie</td>
+      <td>2, rue de Kuhlendorf</td>
+      <td>67660</td>
+      <td>BETSCHDORF</td>
+      <td>www.betschdorf.fr/tourisme/visiter_betschdrof/...</td>
+      <td>Novembre à mi-avril</td>
+      <td>Ouvert du mardi au samedi de 10h à 12h et de 1...</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">museum_count</span> <span class="o">=</span> <span class="n">museums</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;NOMDEP&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">museum_count</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>NOMDEP
+AIN                        14
+AISNE                      15
+ALLIER                      9
+ALPES DE HAUTE PROVENCE     9
+ALPES-MARITIMES            33
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">departements</span><span class="p">[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">departements</span><span class="p">[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="n">departements</span><span class="p">[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">departements</span><span class="p">[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">departements</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">departements</span><span class="p">[</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">]</span>
+<span class="n">departements</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Nom du département&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joined</span> <span class="o">=</span> <span class="n">departements</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">museum_count</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">museum_count</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;number of museums&quot;</span><span class="p">]))</span>
+<span class="n">joined</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Population totale</th>
+      <th>number of museums</th>
+    </tr>
+    <tr>
+      <th>Nom du département</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AIN</th>
+      <td>643.309</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>AISNE</th>
+      <td>554.040</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>ALLIER</th>
+      <td>353.262</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">joined</span><span class="p">[</span><span class="s2">&quot;Population totale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">joined</span><span class="p">[</span><span class="s2">&quot;Population totale&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">pandas</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">))</span>
+<span class="n">joined</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[27]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Population totale</th>
+      <th>number of museums</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Population totale</th>
+      <td>1.000000</td>
+      <td>0.601027</td>
+    </tr>
+    <tr>
+      <th>number of museums</th>
+      <td>0.601027</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="dask">dask<a class="anchor-link" href="#dask">&#182;</a></h1>
+<h1 id="dask">dask<a class="anchor-link" href="#dask">&#182;</a></h1><ul>
+<li>dask dataframe<ul>
+<li>combiness many pandas dataframes (split along the index), <strong>mimic pandas API</strong></li>
+<li>use cases<ul>
+<li>manipulating <strong>datasets not fitting comfortably into memory</strong> on a single machine</li>
+<li><strong>parallelizing</strong> many pandas operations across <strong>many cores</strong></li>
+<li><strong>distributed computing</strong> of very large tables (e.g. stored in parallel file systems)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<center><img src="dask-dataframe.png" alt="?" style="height: 300px;"/></center>
 </div>
 </div>
 </div></section></section><section><section>
@@ -17287,10 +17792,10 @@ yIoAAAAASUVORK5CYII=
 
 
 
-<div id="50cda519-a224-4a97-9b4b-c1ce11f9b362"></div>
+<div id="2ec59ea6-5a73-4829-b3ce-576f950eab03"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#50cda519-a224-4a97-9b4b-c1ce11f9b362');
+var element = $('#2ec59ea6-5a73-4829-b3ce-576f950eab03');
 
 (function(root) {
   function now() {
@@ -17613,10 +18118,10 @@ var element = $('#50cda519-a224-4a97-9b4b-c1ce11f9b362');
 
 
 
-<div id="ed186fd6-b042-4c1c-8190-7d10acf53e1d"></div>
+<div id="ea105850-9cdd-4b66-9f82-a83535831a32"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ed186fd6-b042-4c1c-8190-7d10acf53e1d');
+var element = $('#ea105850-9cdd-4b66-9f82-a83535831a32');
 (function(root) {
   function embed_document(root) {
     var docs_json = {"06265b3b-d73b-4a89-b2e1-707abdae071e":{"roots":{"references":[{"attributes":{"axis_label":"Children per woman (total fertility)","formatter":{"id":"1eabbc7f-4854-4514-91be-e61c79e7ebbb","type":"BasicTickFormatter"},"plot":{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"},"ticker":{"id":"120f4d3c-fa08-4eac-8660-a5f701235721","type":"BasicTicker"}},"id":"d11f6b9e-5a8c-4c17-823f-5ad5d9267716","type":"LinearAxis"},{"attributes":{"background_fill_color":{"value":"white"},"below":[{"id":"d11f6b9e-5a8c-4c17-823f-5ad5d9267716","type":"LinearAxis"}],"left":[{"id":"5d11236a-b8a2-4dc0-84c1-c52f65c96483","type":"LinearAxis"}],"min_border_bottom":10,"min_border_left":10,"min_border_right":10,"min_border_top":10,"plot_width":700,"renderers":[{"id":"d11f6b9e-5a8c-4c17-823f-5ad5d9267716","type":"LinearAxis"},{"id":"175a6896-841a-403e-bf29-49ae92810d29","type":"Grid"},{"id":"5d11236a-b8a2-4dc0-84c1-c52f65c96483","type":"LinearAxis"},{"id":"b2f4552a-8570-427d-ab57-c2d84ecca1c8","type":"Grid"},{"id":"0f33692a-83e8-4b6d-b271-cb71e33fde39","type":"BoxAnnotation"},{"id":"03aa25e4-c1d9-4eb0-8738-2eac754adc27","type":"Legend"},{"id":"e9f0554a-9f4b-4115-9911-43fb589b8e87","type":"GlyphRenderer"},{"id":"faac0bab-e88c-4174-b1d5-08d07e284936","type":"GlyphRenderer"}],"title":{"id":"62c3a8f5-3071-4d14-a2de-af3de3738127","type":"Title"},"toolbar":{"id":"44b2b582-13b6-4a46-9e00-3bbf73ca6fda","type":"Toolbar"},"x_range":{"id":"8247c689-80fc-434c-bb76-8eb97523ebf8","type":"Range1d"},"x_scale":{"id":"df345d91-07c3-4fb6-9989-173549c0cfeb","type":"LinearScale"},"y_range":{"id":"d279efbe-9b28-4cf6-b6a3-7fadd0a40886","type":"Range1d"},"y_scale":{"id":"2ec68338-2649-4f92-9289-7f5f38d6c994","type":"LinearScale"}},"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"df345d91-07c3-4fb6-9989-173549c0cfeb","type":"LinearScale"},{"attributes":{"callback":null,"column_names":["x","y","text"],"data":{"text":["1964"],"x":[1.2],"y":[25]}},"id":"6f9a26ed-d8d6-4b3e-9f25-c301a270e4b5","type":"ColumnDataSource"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"plot":null,"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"0f33692a-83e8-4b6d-b271-cb71e33fde39","type":"BoxAnnotation"},{"attributes":{"children":[{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"}]},"id":"271b243e-78cf-47ee-ab59-0d561aa73ed5","type":"Column"},{"attributes":{"callback":null,"end":100,"start":15},"id":"d279efbe-9b28-4cf6-b6a3-7fadd0a40886","type":"Range1d"},{"attributes":{},"id":"1eabbc7f-4854-4514-91be-e61c79e7ebbb","type":"BasicTickFormatter"},{"attributes":{"source":{"id":"ca801049-e87a-4c7d-8014-61f3eae639a1","type":"ColumnDataSource"}},"id":"90f70e65-39c3-49b1-a483-c52b280a1c00","type":"CDSView"},{"attributes":{"data_source":{"id":"6f9a26ed-d8d6-4b3e-9f25-c301a270e4b5","type":"ColumnDataSource"},"glyph":{"id":"daa6a4ce-55d4-4871-849d-765a8f256bfe","type":"Text"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"a561cb97-b153-4c4f-bbaf-b8fe0d29172c","type":"Text"},"selection_glyph":null,"view":{"id":"ccd114e7-8e39-4620-9028-8ff4fb04e1ff","type":"CDSView"}},"id":"faac0bab-e88c-4174-b1d5-08d07e284936","type":"GlyphRenderer"},{"attributes":{},"id":"9f7ff69a-3dba-432d-b4df-44df24827a56","type":"WheelZoomTool"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"field":"Group","transform":{"id":"5960badd-fd4c-4c3a-9a60-a7f9c63fabec","type":"CategoricalColorMapper"}},"line_alpha":{"value":0.6},"line_color":{"value":"#000000"},"size":{"field":"size_population","units":"screen"},"x":{"field":"Fertility"},"y":{"field":"Life expectancy"}},"id":"ccca9b22-4237-4d96-bd7a-fb7233aeeca0","type":"Circle"},{"attributes":{"dimension":1,"grid_line_color":{"value":null},"plot":{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"},"ticker":{"id":"2e114c67-34e5-449c-9187-1d57d2b40d49","type":"BasicTicker"}},"id":"b2f4552a-8570-427d-ab57-c2d84ecca1c8","type":"Grid"},{"attributes":{"callback":null,"renderers":[{"id":"e9f0554a-9f4b-4115-9911-43fb589b8e87","type":"GlyphRenderer"}],"tooltips":[["Children per woman (total fertility)","@{Fertility}"],["Life expectancy at birth (years)","@{Life_expectancy}"],["Country","@{Country}"],["Population","@{population}"],["Group","@{Group}"]]},"id":"a315292b-fbdf-4808-b482-52e1deb74b9a","type":"HoverTool"},{"attributes":{"plot":null,"text":"Gapminder Demo","text_color":{"value":"black"},"text_font_size":{"value":"12pt"}},"id":"62c3a8f5-3071-4d14-a2de-af3de3738127","type":"Title"},{"attributes":{},"id":"120f4d3c-fa08-4eac-8660-a5f701235721","type":"BasicTicker"},{"attributes":{},"id":"358a4a60-75f9-4484-b67e-e980e7f804e7","type":"SaveTool"},{"attributes":{"click_policy":"mute","items":[{"id":"b4b25594-8478-458c-ac33-15e552ece6bd","type":"LegendItem"}],"plot":{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"}},"id":"03aa25e4-c1d9-4eb0-8738-2eac754adc27","type":"Legend"},{"attributes":{"callback":null,"column_names":["Fertility","Life expectancy","Group","size_population","Life_expectancy","Country","population"],"data":{"Country":["Afghanistan","Albania","Algeria","Angola","Antigua and Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Rep.","Chad","Channel Islands","Chile","China","Colombia","Comoros","Congo, Dem. Rep.","Congo, Rep.","Costa Rica","Cote d'Ivoire","Croatia","Cuba","Cyprus","Czech Rep.","Denmark","Djibouti","Dominican Rep.","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","French Guiana","French Polynesia","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Greenland","Grenada","Guadeloupe","Guam","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hong Kong, China","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea, Dem. Rep.","Korea, Rep.","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Lithuania","Luxembourg","Macao, China","Macedonia, FYR","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Martinique","Mauritania","Mauritius","Mayotte","Mexico","Micronesia, Fed. Sts.","Moldova","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Lucia","Saint Vincent and the Grenadines","Samoa","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovak Republic","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Venezuela","West Bank and Gaza","Western Sahara","Vietnam","Virgin Islands (U.S.)","Yemen, Rep.","Zambia","Zimbabwe"],"Fertility":{"__ndarray__":"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","dtype":"float64","shape":[202]},"Group":["South Asia","Europe & Central Asia","Middle East & North Africa","Sub-Saharan Africa","America","America","Europe & Central Asia","America","East Asia & Pacific","Europe & Central Asia","Europe & Central Asia","America","Middle East & North Africa","South Asia","America","Europe & Central Asia","Europe & Central Asia","America","Sub-Saharan Africa","South Asia","America","Europe & Central Asia","Sub-Saharan Africa","America","East Asia & Pacific","Europe & Central Asia","Sub-Saharan Africa","Sub-Saharan Africa","East Asia & Pacific","Sub-Saharan Africa","America","Sub-Saharan Africa","Sub-Saharan Africa","Sub-Saharan Africa","Europe & Central Asia","America","East Asia & Pacific","America","Sub-Saharan Africa","Sub-Saharan Africa","Sub-Saharan Africa","America","Sub-Saharan Africa","Europe & Central Asia","America","Europe & Central Asia","Europe & Central Asia","Europe & Central Asia","Middle East & North Africa","America","America","Middle East & North Africa","America","Sub-Saharan Africa","Sub-Saharan Africa","Europe & Central Asia","Sub-Saharan Africa","East Asia & Pacific","Europe & Central Asia","Europe & Central Asia","America","East Asia & Pacific","Sub-Saharan Africa","Sub-Saharan Africa","Europe & Central Asia","Europe & Central Asia","Sub-Saharan Africa","Europe & Central Asia","Europe & Central Asia","America","America","East Asia & Pacific","America","Sub-Saharan Africa","Sub-Saharan Africa","America","America","America","East Asia & Pacific","Europe & Central Asia","Europe & Central Asia","South Asia","East Asia & Pacific","Middle East & North Africa","Middle East & North Africa","Europe & Central Asia","Middle East & North Africa","Europe & Central Asia","America","East Asia & Pacific","Middle East & North Africa","Europe & Central Asia","Sub-Saharan Africa","East Asia & Pacific","East Asia & Pacific","East Asia & Pacific","Middle East & North Africa","Europe & Central Asia","East Asia & Pacific","Europe & Central Asia","Middle East & North Africa","Sub-Saharan Africa","Sub-Saharan Africa","Middle East & North Africa","Europe & Central Asia","Europe & Central Asia","East Asia & Pacific","Europe & Central Asia","Sub-Saharan Africa","Sub-Saharan Africa","East Asia & Pacific","South Asia","Sub-Saharan Africa","Europe & Central Asia","America","Sub-Saharan Africa","Sub-Saharan Africa","Sub-Saharan Africa","America","East Asia & Pacific","Europe & Central Asia","East Asia & Pacific","Europe & Central Asia","Middle East & North Africa","Sub-Saharan Africa","East Asia & Pacific","Sub-Saharan Africa","South Asia","Europe & Central Asia","America","East Asia & Pacific","East Asia & Pacific","America","Sub-Saharan Africa","Sub-Saharan Africa","Europe & Central Asia","Middle East & North Africa","South Asia","America","East Asia & Pacific","America","America","East Asia & Pacific","Europe & Central Asia","Europe & Central Asia","America","Middle East & North Africa","Sub-Saharan Africa","Europe & Central Asia","Europe & Central Asia","Sub-Saharan Africa","America","America","East Asia & Pacific","Sub-Saharan Africa","Middle East & North Africa","Sub-Saharan Africa","Europe & Central Asia","Sub-Saharan Africa","Sub-Saharan Africa","East Asia & Pacific","Europe & Central Asia","Europe & Central Asia","East Asia & Pacific","Sub-Saharan Africa","Sub-Saharan Africa","Sub-Saharan Africa","Europe & Central Asia","South Asia","Sub-Saharan Africa","America","Sub-Saharan Africa","Europe & Central Asia","Europe & Central Asia","Middle East & North Africa","East Asia & Pacific","Europe & Central Asia","Sub-Saharan Africa","East Asia & Pacific","East Asia & Pacific","Sub-Saharan Africa","East Asia & Pacific","America","Middle East & North Africa","Europe & Central Asia","Europe & Central Asia","Sub-Saharan Africa","Europe & Central Asia","Middle East & North Africa","Europe & Central Asia","America","America","Europe & Central Asia","East Asia & Pacific","America","Middle East & North Africa","Middle East & North Africa","East Asia & Pacific","America","Middle East & North Africa","Sub-Saharan Africa","Sub-Saharan Africa"],"Life expectancy":{"__ndarray__":"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","dtype":"float64","shape":[202]},"Life_expectancy":{"__ndarray__":"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","dtype":"float64","shape":[202]},"population":{"__ndarray__":"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","dtype":"float64","shape":[202]},"size_population":{"__ndarray__":"A7XC8yoRMUDINR0NcAcmQHIExYZVhzFA5xciELrWLEDm6ymeuawSQKpZJFPEiTRAmSmbHYrxJkDgs6ouU4sSQC8xAEoxUzFA+GC3/UgaL0AnuDhREYsrQBMJJfpe8hZAPybUDKfHGEAo9Pijx/U5QJwVC7nVZxpAv+70vm81MEDyVPTRyJowQKWxh5/KhhVAMQ6p9JwAKECmKYVz7d4aQDfFU8VCQipALbc24b+uKUA3Jbx++I0gQNLlazLCjDxAufsNafoTFUCM2f4fSwYwQK/6FIBDpSxAbUJyMEJJKUA6/tz3z6wtQHnO7b8slS1As13q/f/iM0BC2zd0LGMaQPEtoqzsZCVA0OGA4j1qKUCJDVW73wkWQD5Fa7aULTBAkynjE39dSECkPvxsy4szQBr2oqZdnxlAjp5AVixIM0Dx4QCvK4wjQKMqARU5HCVAyV7b+qc+K0AV1n0bcgMrQKyhLU6Hry9AKNubIX6MIEAA+Uwku7kwQE/CoA9O+CtAPLsej6/QFUASrKcAknEqQHKiOOpyXSxAEkebkDxhNkBUgYIl8kQpQGEK1DFSOBtA4LAnD6pDJUBQDl9X6CkkQEscg4w9LjVA7mJsS4QWH0BdGjqdY7QrQNoVbN73/jhA7DA2U+64EEAN3taBbcUUQLZdKIli4R9AL8M9FGg5HkBKByaqsIIrQElSaHav8ztAKT0scKuDL0AlW19HAzQwQBw7iuC8uxBA2QW1P7wDFUDmZ+/ibv8bQKNjYMR/yxNAmt2H6lbXK0CopTWWjmsqQBnLq2DjryBAOA2GAobcIED5hQbFpCQrQA0N39hZUCdAfe2sulVOKkAmtDMOWuowQI3EBhiDBhlAY3r9JaFFRkCUDtU8YB0+QCZ7y1sxFjVA8ZvxpjcRMEBfX9EcIa0oQFqqVSHTuCdAmPZQhOBbOUBHI39jfMYlQEi1Lq8Jtz1Ayno4ehlAI0Dww+JU3n8xQAt+AuOyhTBA/A1IRd6eEEBiBqOSRakxQAN2wpJExzVAOCDvLp7JHkAJeN84ttUnQMWer0YCdSdAQBenbvszJ0C+r5J0zvcmQGlEm3KkjyJAGQkYA0z7I0B2tstO7DUlQJmwbUuY0ShAM8tO0Bu7HECVYJJVP0wZQA58bRtx3SRA2Qbwv7w3LUC8EPSLIaAqQAaTkeOljzBABEGPputbFUD4I+UR8hUtQJ9hMRfTPxxAHTyhUls9HEBN06AZY8MiQL7jOFsxkiFAfcwy/chdD0C9Y46PyV84QBiAMD64/BFAJqW6smOGKUCL5OPmrlMjQIGoUJfx6x9AI4g1R/L/MUCNkizUzhkwQDnHKn5avDRAlG8TK8YiIUD2U7z2XBMxQIrE1iNlrTFAY9ZR+3FgF0DFM5p9SLMUQPZFm83nDChAvxJWgxWRJkBc9uyU8jsqQJDY9RaqPDlAS2x6X8RNKkAeRIypVcwgQAncivHlTzlAXMxpqjgiJEBcP0hU2eImQAsZSJNI5CZA/TFbcj1VMUA/v8y33CM2QEVjerCXVjZALJ9FsM9lMECgs19dHfUnQEXsET7vTxNAk3oB3ba+HUC5UWJK0MUzQG/KQDAQwz9AqaLwSD86KUC5VpkrAxUVQMOMfjSKfhRA92lqiTp/FkBzSJeFMRsTQFabDKQf0itA3hy3tjvFKUBDpDoRpL0vQGbvS6fnhRFAA+yJ11dzJ0BVutgfGhYmQEphsmqSUytAuaWZku9oJUDfIkYPSDYXQJoqR0iDKilA/2ORc+ziM0CfLGE3cxgoQF+rltGihTZA7oBTTB9DMUBXhfW00OowQAvOmOc9nRxAp2zIQaLXHUBfrZ0jDpUvQOEdKV/OWi1AQqsAVsinLECX2ggUeeIxQDXacBjXrCdANo4BsZBoMUCsEHFHLls2QC4TRXqKPiBAw5uMSsWEJUDxU03O7KMTQIMKsV0MZSJAvQq6/LayK0BWBvJhsGc2QAmxPBEwESZA6DEsmYinL0DSlWCEmo04QC1iwJXM+hZAjil8q7u3OUDkc08U4cVBQFkI7izsPShAgHV8xrTSMECPf7c2cqoTQMDYXvgqUjBAZp5LoCnII0Akznr0dJoRQHxZCrExsTdAw+EVxeyVEUCtrdyzxRctQOUHLOWP0ilAvPaCXC9KK0A=","dtype":"float64","shape":[202]}}},"id":"ca801049-e87a-4c7d-8014-61f3eae639a1","type":"ColumnDataSource"},{"attributes":{},"id":"2e114c67-34e5-449c-9187-1d57d2b40d49","type":"BasicTicker"},{"attributes":{"fill_alpha":{"value":0.6},"fill_color":{"field":"Group","transform":{"id":"5960badd-fd4c-4c3a-9a60-a7f9c63fabec","type":"CategoricalColorMapper"}},"line_alpha":{"value":0.6},"line_color":{"value":"#000000"},"size":{"field":"size_population","units":"screen"},"x":{"field":"Fertility"},"y":{"field":"Life expectancy"}},"id":"418e8ca2-45ed-40b6-b5ce-64769a619f44","type":"Circle"},{"attributes":{},"id":"2ec68338-2649-4f92-9289-7f5f38d6c994","type":"LinearScale"},{"attributes":{"callback":null,"end":10},"id":"8247c689-80fc-434c-bb76-8eb97523ebf8","type":"Range1d"},{"attributes":{"grid_line_color":{"value":null},"plot":{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"},"ticker":{"id":"120f4d3c-fa08-4eac-8660-a5f701235721","type":"BasicTicker"}},"id":"175a6896-841a-403e-bf29-49ae92810d29","type":"Grid"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_scroll":"auto","active_tap":"auto","tools":[{"id":"a315292b-fbdf-4808-b482-52e1deb74b9a","type":"HoverTool"},{"id":"358a4a60-75f9-4484-b67e-e980e7f804e7","type":"SaveTool"},{"id":"61303ab1-1b31-4703-abf3-660b848f8457","type":"PanTool"},{"id":"9f7ff69a-3dba-432d-b4df-44df24827a56","type":"WheelZoomTool"},{"id":"873029cc-e46b-4914-ad91-6976d1647fd8","type":"BoxZoomTool"},{"id":"4ab34d45-e576-4427-a2e1-b1830185d8b5","type":"ResetTool"}]},"id":"44b2b582-13b6-4a46-9e00-3bbf73ca6fda","type":"Toolbar"},{"attributes":{"text_align":"center","text_alpha":{"value":0.1},"text_baseline":"middle","text_color":{"value":"#D3D3D3"},"text_font_size":{"value":"52pt"},"x":{"field":"x"},"y":{"field":"y"}},"id":"a561cb97-b153-4c4f-bbaf-b8fe0d29172c","type":"Text"},{"attributes":{"axis_label":"Life expectancy at birth (years)","formatter":{"id":"29554f0a-5a85-4eb5-b765-94faaef09c80","type":"BasicTickFormatter"},"plot":{"id":"4273f0ec-0746-4bb5-8e6c-81d439b53d74","subtype":"Figure","type":"Plot"},"ticker":{"id":"2e114c67-34e5-449c-9187-1d57d2b40d49","type":"BasicTicker"}},"id":"5d11236a-b8a2-4dc0-84c1-c52f65c96483","type":"LinearAxis"},{"attributes":{"text_align":"center","text_baseline":"middle","text_color":{"value":"#D3D3D3"},"text_font_size":{"value":"52pt"},"x":{"field":"x"},"y":{"field":"y"}},"id":"daa6a4ce-55d4-4871-849d-765a8f256bfe","type":"Text"},{"attributes":{"label":{"field":"Group"},"renderers":[{"id":"e9f0554a-9f4b-4115-9911-43fb589b8e87","type":"GlyphRenderer"}]},"id":"b4b25594-8478-458c-ac33-15e552ece6bd","type":"LegendItem"},{"attributes":{"data_source":{"id":"ca801049-e87a-4c7d-8014-61f3eae639a1","type":"ColumnDataSource"},"glyph":{"id":"418e8ca2-45ed-40b6-b5ce-64769a619f44","type":"Circle"},"hover_glyph":null,"muted_glyph":{"id":"d8b6abdf-6c14-48f7-bc0f-47b029c8c26a","type":"Circle"},"nonselection_glyph":{"id":"ccca9b22-4237-4d96-bd7a-fb7233aeeca0","type":"Circle"},"selection_glyph":null,"view":{"id":"90f70e65-39c3-49b1-a483-c52b280a1c00","type":"CDSView"}},"id":"e9f0554a-9f4b-4115-9911-43fb589b8e87","type":"GlyphRenderer"},{"attributes":{"factors":["America","East Asia & Pacific","Europe & Central Asia","Middle East & North Africa","South Asia","Sub-Saharan Africa"],"palette":["#e41a1c","#377eb8","#984ea3","#ffff33","#f781bf","#999999"]},"id":"5960badd-fd4c-4c3a-9a60-a7f9c63fabec","type":"CategoricalColorMapper"},{"attributes":{"source":{"id":"6f9a26ed-d8d6-4b3e-9f25-c301a270e4b5","type":"ColumnDataSource"}},"id":"ccd114e7-8e39-4620-9028-8ff4fb04e1ff","type":"CDSView"},{"attributes":{"overlay":{"id":"0f33692a-83e8-4b6d-b271-cb71e33fde39","type":"BoxAnnotation"}},"id":"873029cc-e46b-4914-ad91-6976d1647fd8","type":"BoxZoomTool"},{"attributes":{},"id":"29554f0a-5a85-4eb5-b765-94faaef09c80","type":"BasicTickFormatter"},{"attributes":{},"id":"61303ab1-1b31-4703-abf3-660b848f8457","type":"PanTool"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"field":"Group","transform":{"id":"5960badd-fd4c-4c3a-9a60-a7f9c63fabec","type":"CategoricalColorMapper"}},"line_alpha":{"value":0.2},"line_color":{"value":"#000000"},"size":{"field":"size_population","units":"screen"},"x":{"field":"Fertility"},"y":{"field":"Life expectancy"}},"id":"d8b6abdf-6c14-48f7-bc0f-47b029c8c26a","type":"Circle"},{"attributes":{},"id":"4ab34d45-e576-4427-a2e1-b1830185d8b5","type":"ResetTool"}],"root_ids":["271b243e-78cf-47ee-ab59-0d561aa73ed5"]},"title":"Bokeh Application","version":"0.12.9"}};
